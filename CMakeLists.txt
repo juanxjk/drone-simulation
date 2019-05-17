@@ -9,10 +9,6 @@ include_directories(${GAZEBO_INCLUDE_DIRS})
 link_directories(${GAZEBO_LIBRARY_DIRS})
 list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 
-find_package (Qt5Core REQUIRED)
-find_package (Qt5Widgets REQUIRED)
-set (CMAKE_AUTOMOC ON)
-
 add_library(KeyboardGUIPlugin MODULE src/KeyboardGUIPlugin.cc)
 target_link_libraries(KeyboardGUIPlugin ${GAZEBO_LIBRARIES} Qt5::Core)
 
