@@ -957,5 +957,7 @@
 		<link_name>quad_2292_1::blade_8</link_name>
 	  </plugin> 
 
+		<plugin name='droneController' filename='libDroneControllerPlugin.so'>
+		</plugin>
 	</model>
 </sdf>
