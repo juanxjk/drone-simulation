@@ -21,6 +21,10 @@
             <max_step_size>0.001</max_step_size>
         </physics>
 
+        <gui fullscreen='0'>
+            <plugin name='keyboard' filename='libKeyboardGUIPlugin.so'/>
+        </gui>
+
         <!-- Ground -->
         <include>
             <uri>model://ground_plane</uri>

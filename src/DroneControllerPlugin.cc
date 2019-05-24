@@ -22,7 +22,25 @@ public:
     // Store the pointer to the model and world
     this->model = _parent;
     this->world = this->model->GetWorld();
+
+    // Initialize keyboard transport
+    this->node = transport::NodePtr(new transport::Node());
+    this->node->Init();
+
+    this->keyboardSub =
+        this->node->Subscribe("~/keyboard/keypress",
+                              &DroneControllerPlugin::OnKeyPress, this, true);
+
     std::cout << "DroneControllerPlugin has loaded." << std::endl;
+  }
+
+  void OnKeyPress(ConstAnyPtr &_msg)
+  {
+    char key = static_cast<char>(_msg->int_value());
+
+    std::cout << "Button pressed." << std::endl;
+    std::cout << key << std::endl;
+
   }
 
   /////////////////////////////////////////////////////////////////////////////
@@ -32,6 +50,11 @@ public:
   }
 
 private:
+  /// \brief Node for communication.
+  transport::NodePtr node;
+
+  /// \brief Subscribe to keyboard messages.
+  transport::SubscriberPtr keyboardSub;
 
   /// \brief Pointer to the model.
   physics::ModelPtr model;
