@@ -15,3 +15,6 @@ target_link_libraries(KeyboardGUIPlugin ${GAZEBO_LIBRARIES} Qt5::Core)
 add_library(KeysToJointsPlugin MODULE src/KeysToJointsPlugin.cc)
 target_link_libraries(KeysToJointsPlugin ${GAZEBO_LIBRARIES} Qt5::Core)
 
+# Drone Controller
+add_library(DroneControllerPlugin SHARED src/DroneControllerPlugin.cc)
+target_link_libraries(DroneControllerPlugin ${GAZEBO_LIBRARIES})
