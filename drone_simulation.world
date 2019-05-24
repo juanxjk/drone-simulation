@@ -30,5 +30,10 @@
         <include>
             <uri>model://sun</uri>
         </include>
+
+        <!-- Drone -->
+        <include>
+            <uri>model://quad_2292_1</uri>
+        </include>
     </world>
 </sdf>
