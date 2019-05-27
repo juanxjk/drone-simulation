@@ -18,3 +18,7 @@ target_link_libraries(KeysToJointsPlugin ${GAZEBO_LIBRARIES} Qt5::Core)
 # Drone Controller
 add_library(DroneControllerPlugin SHARED src/DroneControllerPlugin.cc)
 target_link_libraries(DroneControllerPlugin ${GAZEBO_LIBRARIES})
+
+# Lift Drag Plugin
+add_library(LiftDragPlugin SHARED src/LiftDragPlugin.cc)
+target_link_libraries(LiftDragPlugin ${GAZEBO_LIBRARIES})
