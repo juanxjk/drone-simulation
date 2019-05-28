@@ -31,6 +31,11 @@ public:
         this->node->Subscribe("~/keyboard/keypress",
                               &DroneControllerPlugin::OnKeyPress, this, true);
 
+    // Listen to the update event. This event is broadcast every
+    // simulation iteration.
+    this->updateConnection = event::Events::ConnectWorldUpdateBegin(
+        std::bind(&DroneControllerPlugin::OnUpdate, this));
+
     std::cout << "DroneControllerPlugin has loaded." << std::endl;
   }
 
@@ -61,6 +66,8 @@ private:
 
   /// \brief World from the model.
   physics::WorldPtr world;
+  /// \brief Pointer to the update event connection.
+  event::ConnectionPtr updateConnection;
 };
 
 // Register this plugin with the simulator
