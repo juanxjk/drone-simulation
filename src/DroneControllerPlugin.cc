@@ -59,6 +59,7 @@ public:
     case 'l': // Move right
       break;
     case 'g': //RESET
+      reset();
       break;
   }
     std::cout << "[DEBUG] Button pressed: " << key << std::endl;
@@ -95,6 +96,15 @@ private:
 
   /// \brief Thrust applied by drone.
   Vector3d thrusts[4];
+
+  /////////////////////////////////////////////////////////////////////////////
+  void reset()
+  {
+    thrusts[MOTOR_FRONT] = 0.0;
+    thrusts[MOTOR_LEFT] = 0.0;
+    thrusts[MOTOR_RIGHT] = 0.0;
+    thrusts[MOTOR_BACK] = 0.0;
+  }
 };
 
 // Register this plugin with the simulator
