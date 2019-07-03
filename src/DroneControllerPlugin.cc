@@ -3,7 +3,9 @@
 #include <gazebo/physics/physics.hh>
 #include <gazebo/common/common.hh>
 #include <iostream>
+#include <ignition/math/Vector3.hh>
 
+using ignition::math::Vector3d;
 namespace gazebo
 {
 class DroneControllerPlugin : public ModelPlugin
@@ -68,6 +70,17 @@ private:
   physics::WorldPtr world;
   /// \brief Pointer to the update event connection.
   event::ConnectionPtr updateConnection;
+
+  enum EnumMotors
+  {
+    MOTOR_FRONT = 3,
+    MOTOR_LEFT = 0,
+    MOTOR_RIGHT = 1,
+    MOTOR_BACK = 2
+  };
+
+  /// \brief Thrust applied by drone.
+  Vector3d thrusts[4];
 };
 
 // Register this plugin with the simulator
