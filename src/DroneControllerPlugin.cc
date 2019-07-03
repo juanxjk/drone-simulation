@@ -41,13 +41,27 @@ public:
     std::cout << "DroneControllerPlugin has loaded." << std::endl;
   }
 
+  /////////////////////////////////////////////////////////////////////////////
   void OnKeyPress(ConstAnyPtr &_msg)
   {
     char key = static_cast<char>(_msg->int_value());
-
-    std::cout << "Button pressed." << std::endl;
-    std::cout << key << std::endl;
-
+    switch (key)
+    {
+    case 't': // Show Simulation Time
+      std::cout << this->world->SimTime() << std::endl;
+      break;
+    case 'y': // Move up
+      break;
+    case 'h': // Move down
+      break;
+    case 'j': // Move left
+      break;
+    case 'l': // Move right
+      break;
+    case 'g': //RESET
+      break;
+  }
+    std::cout << "[DEBUG] Button pressed: " << key << std::endl;
   }
 
   /////////////////////////////////////////////////////////////////////////////
